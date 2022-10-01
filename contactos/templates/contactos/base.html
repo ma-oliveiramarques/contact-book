@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="/static/contact-book.png">
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+
+<!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+  <nav id="navigation">
+    <div class="menu-wrapper">
+      <a class="logo" href="{% url 'contactos:home' %}">
+        <img src="{% static 'contact-book.png' %}">
+        Contact<span>BOOK</span>
+      </a>
+
+      <div class="menu">
+        <ul>
+          <li><a href="{% url 'contactos:home' %}">Lista de Contactos</a></li>
+          <li><a href="{% url 'contactos:add' %}">Criar novo Contacto</a></li>
+          <li><a href="{% url 'contactos:groups' %}">Grupos</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrapper">{% block main %} {% endblock %}</div>
+
+  </body>
+</html>

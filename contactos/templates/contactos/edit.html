@@ -1,0 +1,26 @@
+{% extends "contactos/base.html" %}
+{% load static %}
+
+{% block title %}Editar Contacto{% endblock %}
+
+{% block main %}
+
+<header>
+  <h3>Editar Contacto</h3>
+</header>
+
+
+<section id="edit">
+  <form method="post" enctype="multipart/form-data">
+    <!-- Cross Site Request Forgery (mecanismo de segurança) -->
+    {% csrf_token %}
+
+
+    <table id="tbl_edit">
+      {{ form.as_table }}
+    </table>
+
+    <button>GRAVAR</button>
+  </form>
+</section>
+{% endblock %}

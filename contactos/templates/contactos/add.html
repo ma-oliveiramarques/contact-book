@@ -1,0 +1,23 @@
+{% extends "contactos/base.html" %}
+{% load static %}
+
+{% block title %}Criar Novo Contacto{% endblock %}
+
+{% block main %}
+<header>
+    <h3>Adicionar novo Contacto</h3>
+</header>
+
+
+<section id="addForm">
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table id="tbl_add">
+        {{ form.as_table }}
+        </table>
+
+        <button>GRAVAR</button>
+    </form>
+</section>
+{% endblock %}

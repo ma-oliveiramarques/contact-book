@@ -1,0 +1,65 @@
+{% extends "contactos/base.html" %}
+{% load static %}
+
+{% block title %}Contactos - Grupos{% endblock %}
+
+{% block main %}
+<header>
+   <h3>Grupos</h3>
+</header>
+
+
+   <form class="group" method="post">
+        {% csrf_token %}
+       <select id="group" name="grupo" onchange="document.getElementById('btn_ok').click()">
+        {% for grupo in grupos %}
+           {% if grupo.id == contactos.0.grupo_id %}
+                <option class="group" selected value="{{ grupo.id }}">{{grupo.grupo}}</option>
+           {% else %}
+                <option class="group" value="{{grupo.id}}">{{grupo.grupo}}</option>
+           {% endif %}
+        {% endfor %}
+        </select>
+        <button id="btn_ok">ok</button>
+    </form>
+<a href="{% url 'contactos:add' %}" class="add">
+  <img src="{% static 'add.png' %}" class="icon" />
+    Adicionar Novo Contacto
+</a>
+   <br>
+
+
+
+<section id="groups">
+  {% for contacto in contactos %}
+  <div class="contacto">
+    <div class="nome">
+      <p><b>{{ contacto.grupo }}</b></p>
+      <p>{{ contacto }}</p>
+
+        <div class="icons">
+          <a href="{% url 'contactos:edit' contacto.id %}">
+            <img src="{% static 'edit.png' %}" class="icon" />
+          </a>
+
+          <a href="{% url 'contactos:delete' contacto.id %}">
+            <img src="{% static 'delete.png' %}" class="icon" />
+          </a>
+        </div>
+    </div>
+
+    {% if contacto.foto %}
+    <img src="{{ contacto.foto.url }}" class="img" />
+    {% endif %}
+    <div class="contact_info">
+      <p>{% if contacto.contacto %} <b>Contacto</b> {{ contacto.contacto }} {% endif %}</p>
+      <p>{% if contacto.email %}<b>Email:</b> {{ contacto.email }} {% endif %}</p>
+      <p>{% if contacto.morada %}<b>Morada:</b> {{ contacto.morada }} {% endif %}</p>
+      <p>{% if contacto.notas %}<b>Notas:</b> {{ contacto.notas }} {% endif %}</p>
+    </div>
+  </div>
+
+  {% endfor %}
+</section>
+
+{% endblock %}

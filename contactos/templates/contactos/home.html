@@ -1,0 +1,56 @@
+{% extends "contactos/base.html" %}
+{% load static %}
+
+{% block title %}Lista de Contactos{% endblock %}
+
+{% block main %}
+<header>
+  <h3>Lista de Contactos (A-Z)</h3>
+</header>
+
+
+<a href="{% url 'contactos:add' %}" class="add">
+  <img src="{% static 'add.png' %}" title="adicionar contacto" class="icon" />
+  Adicionar Novo Contacto
+</a>
+
+
+<section id="home">
+  {% for contacto in contactos %}
+  <div class="contacto">
+    <div class="nome">
+      <p><b>{{ contacto }}</b></p>
+
+      <div class="icons">
+        <a href="{% url 'contactos:edit' contacto.id %}">
+          <img src="{% static 'edit.png' %}" title="Editar contacto" class="icon" />
+        </a>
+
+        <a href="{% url 'contactos:delete' contacto.id %}">
+          <img src="{% static 'delete.png' %}" title="Eliminar contacto" class="icon" />
+        </a>
+      </div>
+    </div>
+
+    <div id="card-wrapper">
+      {% if contacto.foto %}
+      <img src="{{ contacto.foto.url }}" class="img"/>
+      {% endif %}
+
+      <div class="contact_info">
+        <p>{% if contacto.contacto %} <b>Contacto</b> {{ contacto.contacto }} {% endif %}</p>
+        <p>{% if contacto.email %}<b>Email:</b> {{ contacto.email }} {% endif %}</p>
+        <p>{% if contacto.morada %} <b>Morada:</b> {{ contacto.morada }} {% endif %}</p>
+        <p><b>Grupo:</b> {{ contacto.grupo }}</p>
+        <p>{% if contacto.notas %}<b>Notas:</b> {{ contacto.notas }} {% endif %}</p>
+      </div>
+
+    </div>
+    </div>
+  {% endfor %}
+</section>
+
+
+
+
+{% endblock %}
