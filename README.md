@@ -12,6 +12,7 @@ The front-end was built with HTML and CSS.
 ## Features
 ### Display contacts by A-Z organized by groups
 Contacts organized by Alphabethic order
+
 ![preview of the project](.github/app_preview.png 'Contact Book Project Preview')
 
 Contacts organized by groups
