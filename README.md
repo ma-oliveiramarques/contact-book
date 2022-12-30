@@ -82,7 +82,8 @@ To run locally and mimic my setup, you will need to have:
   - ```pip install Django==4.1.1```
   - ```$ python -m django --version```
   - ``django-admin startproject agenda``
-  - Update ```project/settings.py``` to configure ```SECRET_KEY```, ```DATABASE``` and ```STATIC_ROOT``` entries
+  - Update ```agenda/settings.py``` to configure:
+   ```SECRET_KEY``` (your secret key), ```DATABASE``` (the name of your database in MySQL) and ```STATIC_ROOT``` entries
   ```./manage.py startapp agenda``` , to create the welcome page's app
   - ``python manage.py createsuperuser``
   - ``py manage.py runserver`` : http://127.0.0.1:8000/
