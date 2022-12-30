@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#t3*xe)ns9xkb--f1uvmcsc#3r7a$fcp%bb4&!g(b3az14o=_9'
+SECRET_KEY = #type here your secret key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'agenda.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'agenda',
+        'NAME': # type the name of your database in MySQL,
         'HOST': 'localhost',
-        'USER': 'root',
-        'PASSWORD': '',
+        'USER': # your user's name,
+        'PASSWORD': #your database password,
      }
 }
 
@@ -119,7 +119,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/' # directory where your static files are located
 
 
 # Default primary key field type
@@ -128,7 +128,7 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [
-    BASE_DIR / "/static",
+    BASE_DIR / "/static" # directory where your static files are located
     #'/var/www/static/',
 ]
 
